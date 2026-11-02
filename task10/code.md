@@ -166,7 +166,3 @@ Name: Kumar
 Mathematics Marks: 70
 Aggregate: 65.0 %
 
-Program Completed
-```
-
-Note: Each subject has a maximum of 100 marks. The ranking uses aggregate percentage first and Mathematics marks as the tie-breaker when aggregate percentages are equal.
