@@ -23,89 +23,65 @@ Develop a Python program to simulate water tank levels over multiple days. The p
 8. Display overflow and shortage information.
 9. Display the first day the threshold is reached.
 10. Stop.
-##FLOW CHART
-             ┌──────────────────┐
-             │      START       │
-             └────────┬─────────┘
-                      │
-             ┌────────▼─────────┐
-             │ Enter Tank       │
-             │ Capacity and     │
-             │ Initial Water    │
-             └────────┬─────────┘
-                      │
-             ┌────────▼─────────┐
-             │ Enter Number of  │
-             │ Days / Intervals │
-             └────────┬─────────┘
-                      │
-             ┌────────▼─────────┐
-             │ Enter Inflow and │
-             │ Outflow Quantity │
-             └────────┬─────────┘
-                      │
-             ┌────────▼─────────┐
-             │ Calculate New    │
-             │ Water Level      │
-             └────────┬─────────┘
-                      │
-               ┌──────▼──────┐
-               │ Is Water    │
-               │ Above Tank  │
-               │ Capacity?   │
-               └───┬─────┬───┘
-                 Yes     No
-                  │       │
-          ┌───────▼──┐    │
-          │ Detect   │    │
-          │ Overflow │    │
-          └───────┬──┘    │
-                  │       │
-                  └───┬───┘
-                      │
-               ┌──────▼──────┐
-               │ Is Water    │
-               │ Level Below │
-               │ Zero?       │
-               └───┬─────┬───┘
-                 Yes     No
-                  │       │
-          ┌───────▼──┐    │
-          │ Detect   │    │
-          │ Shortage │    │
-          └───────┬──┘    │
-                  │       │
-                  └───┬───┘
-                      │
-             ┌────────▼─────────┐
-             │ Check Threshold  │
-             │ Water Level      │
-             └────────┬─────────┘
-                      │
-             ┌────────▼─────────┐
-             │ Record First     │
-             │ Threshold Day    │
-             └────────┬─────────┘
-                      │
-               ┌──────▼──────┐
-               │ More Days?  │
-               └───┬─────┬───┘
-                 Yes     No
-                  │       │
-                  │       ▼
-                  │  ┌──────────────┐
-                  │  │ Display Final│
-                  │  │ Water Report │
-                  │  └──────┬───────┘
-                  │         │
-                  │  ┌──────▼───────┐
-                  │  │     STOP     │
-                  │  └──────────────┘
-                  │
-                  └──────> Enter
-                           Next Day
-    
-## 5. Sample Input
+
+
+  ##FLOWCHART
+                START
+                |
+                v
+       Enter Tank Capacity
+       and Initial Water Level
+                |
+                v
+        Enter Number of Days
+                |
+                v
+       Enter Inflow and Outflow
+                |
+                v
+       Calculate New Water Level
+                |
+                v
+       Is Level > Tank Capacity?
+             /       \
+           YES        NO
+            |          |
+            v          |
+       Detect Overflow |
+            |          |
+            +----+-----+
+                 |
+                 v
+          Is Level < 0?
+             /       \
+           YES        NO
+            |          |
+            v          |
+       Detect Shortage |
+            |          |
+            +----+-----+
+                 |
+                 v
+       Check Threshold Level
+                 |
+                 v
+       Record First Threshold
+          Reached Interval
+                 |
+                 v
+          Are More Days?
+             /       \
+           YES        NO
+            |          |
+            v          v
+       Enter Next    Display Final
+          Day        Water Report
+            |          |
+            |          v
+            |         STOP
+            |
+            +----> Calculate
+                   New Water Level
 
 ```
 Enter tank capacity: 1000
