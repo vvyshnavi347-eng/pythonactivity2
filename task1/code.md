@@ -42,43 +42,8 @@ DISPLAY RESULT
   v
 STOP
 
-attended = int(input("Classes attended: "))
-held = int(input("Total classes held: "))
-target = float(input("Required attendance percentage: "))
 
-if held <= 0 or attended < 0 or attended > held:
-    print("Invalid input")
-    exit()
-
-if target <= 0 or target > 100:
-    print("Invalid target")
-    exit()
-
-current = attended / held * 100
-
-print("Current attendance:", round(current, 2), "%")
-
-scenarios = int(input("Number of future scenarios: "))
-
-for i in range(scenarios):
-
-    future_attend = int(input("Future classes attended: "))
-    future_miss = int(input("Future classes missed: "))
-
-    a = attended + future_attend
-    t = held + future_attend + future_miss
-
-    percentage = a / t * 100
-
-    extra = 0
-
-    while (a + extra) / (t + extra) * 100 < target:
-        extra += 1
-
-    print("Scenario", i + 1)
-    print("Attendance:", round(percentage, 2), "%")
-    print("Additional classes needed:", extra)
-    
+        
     sample input
 60
 100
