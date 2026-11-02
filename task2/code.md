@@ -1,4 +1,4 @@
-# Experiment 12: Attendance Recovery Computation
+
 
 ## 1. Problem Statement
 
@@ -69,11 +69,7 @@ Calculate the current attendance percentage of a student and determine the minim
        NEXT SCENARIO     STOP
 
 
-## 4. Python Source Code
 
-```
-# Attendance Recovery Computationattended = int(input("Enter classes attended: "))total = int(input("Enter total classes conducted: "))threshold = float(input("Enter eligibility percentage: "))if total <= 0 or attended < 0 or attended > total:    print("Invalid attendance details")else:    current = (attended / total) * 100    print("\nCurrent Attendance:", round(current, 2), "%")    n = int(input("Enter number of future scenarios: "))    for i in range(n):        print("\nScenario", i + 1)        future_attend = int(input("Enter future classes to attend: "))        future_miss = int(input("Enter future classes to miss: "))        if future_attend < 0 or future_miss < 0:            print("Invalid future class details")            continue        new_attended = attended + future_attend        new_total = total + future_attend + future_miss        percentage = (new_attended / new_total) * 100        print("Attendance after scenario:",              round(percentage, 2), "%")        extra = 0
-```
 
 ## 5. Sample Input
 
@@ -107,7 +103,3 @@ Attendance after scenario: 59.09 %
 Minimum consecutive classes required: 70
 Final attendance percentage: 75.0 %
 
-Program Completed
-```
-
-Note: The program assumes that all additional consecutive classes are attended without missing any. The two scenarios are calculated independently from the original attendance record.
