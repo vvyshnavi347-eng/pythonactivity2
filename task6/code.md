@@ -23,56 +23,88 @@ Develop a Python program to simulate water tank levels over multiple days. The p
 8. Display overflow and shortage information.
 9. Display the first day the threshold is reached.
 10. Stop.
-
-## 3. Flowchart – Mermaid Code
-
-Copy this Mermaid code into [Mermaid Live Editor](https://mermaid.live/?utm_source=chatgpt.com) to generate your flowchart.
-
-```
-
-flowchart TD
-    A([START]) --> B[/Enter Tank Capacity/]
-    B --> C[/Enter Initial Water Level/]
-    C --> D[/Enter Threshold Level/]
-    D --> E[/Enter Number of Days/]
-    E --> F[Set Day = 1]
-    F --> G{Day <= Number of Days?}
-
-    G -- No --> P[/Display Final Summary/]
-    P --> Q([STOP])
-
-    G -- Yes --> H[/Enter Inflow and Outflow/]
-    H --> I[Calculate New Level]
-    I --> J[Water Level + Inflow - Outflow]
-
-    J --> K{New Level > Capacity?}
-    K -- Yes --> L[Record Overflow]
-    K -- No --> M{New Level < 0?}
-
-    L --> N[Set Level = Capacity]
-    M -- Yes --> O[Record Shortage]
-    M -- No --> R[Update Water Level]
-    O --> S[Set Level = 0]
-
-    N --> T{Threshold Reached First Time?}
-    R --> T
-    S --> T
-
-    T -- Yes --> U[Record First Day]
-    T -- No --> V[Continue]
-    U --> V
-    V --> W[Display Daily Water Level]
-    W --> X[Increment Day]
-    X --> G
-
-```
-
-## 4. Python Source Code
-
-```
-# Experiment 16: Multi-Day Water Tank Simulationcapacity = float(input("Enter tank capacity: "))level = float(input("Enter initial water level: "))threshold = float(input("Enter threshold level: "))days = int(input("Enter number of days: "))overflow_count = 0shortage_count = 0first_threshold_day = -1if (capacity <= 0 or level < 0 or level > capacity        or threshold < 0 or threshold > capacity or days <= 0):    print("Invalid tank details")else:    for day in range(1, days + 1):        print("\nDay", day)        inflow = float(input("Enter water inflow: "))        outflow = float(input("Enter water outflow: "))        if inflow < 0 or outflow < 0:            print("Invalid inflow or outflow")            continue        new_level = level + inflow - outflow        if new_level > capacity:            overflow = new_level - capacity            print("Overflow:", overflow)            overflow_count += 1            level = capacity
-```
-
+##FLOW CHART
+             ┌──────────────────┐
+             │      START       │
+             └────────┬─────────┘
+                      │
+             ┌────────▼─────────┐
+             │ Enter Tank       │
+             │ Capacity and     │
+             │ Initial Water    │
+             └────────┬─────────┘
+                      │
+             ┌────────▼─────────┐
+             │ Enter Number of  │
+             │ Days / Intervals │
+             └────────┬─────────┘
+                      │
+             ┌────────▼─────────┐
+             │ Enter Inflow and │
+             │ Outflow Quantity │
+             └────────┬─────────┘
+                      │
+             ┌────────▼─────────┐
+             │ Calculate New    │
+             │ Water Level      │
+             └────────┬─────────┘
+                      │
+               ┌──────▼──────┐
+               │ Is Water    │
+               │ Above Tank  │
+               │ Capacity?   │
+               └───┬─────┬───┘
+                 Yes     No
+                  │       │
+          ┌───────▼──┐    │
+          │ Detect   │    │
+          │ Overflow │    │
+          └───────┬──┘    │
+                  │       │
+                  └───┬───┘
+                      │
+               ┌──────▼──────┐
+               │ Is Water    │
+               │ Level Below │
+               │ Zero?       │
+               └───┬─────┬───┘
+                 Yes     No
+                  │       │
+          ┌───────▼──┐    │
+          │ Detect   │    │
+          │ Shortage │    │
+          └───────┬──┘    │
+                  │       │
+                  └───┬───┘
+                      │
+             ┌────────▼─────────┐
+             │ Check Threshold  │
+             │ Water Level      │
+             └────────┬─────────┘
+                      │
+             ┌────────▼─────────┐
+             │ Record First     │
+             │ Threshold Day    │
+             └────────┬─────────┘
+                      │
+               ┌──────▼──────┐
+               │ More Days?  │
+               └───┬─────┬───┘
+                 Yes     No
+                  │       │
+                  │       ▼
+                  │  ┌──────────────┐
+                  │  │ Display Final│
+                  │  │ Water Report │
+                  │  └──────┬───────┘
+                  │         │
+                  │  ┌──────▼───────┐
+                  │  │     STOP     │
+                  │  └──────────────┘
+                  │
+                  └──────> Enter
+                           Next Day
+    
 ## 5. Sample Input
 
 ```
@@ -115,7 +147,7 @@ Current Water Level: 1000.0
 Day 4
 Current Water Level: 900.0
 
------ WATER TANK SUMMARY -----
+
 Final Water Level: 900.0
 Overflow Days: 1
 Shortage Days: 0
@@ -131,4 +163,3 @@ Simulation Completed
 - If water exceeds capacity, the tank level is limited to its capacity.
 - If water becomes negative, the tank level is set to zero.
 
-Flowchart copying: Click inside the Mermaid code box, select all with `Ctrl + A`, and copy using `Ctrl + C`. Paste it into Mermaid Live Editor to view the diagram.
