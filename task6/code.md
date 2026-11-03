@@ -131,11 +131,3 @@ First Threshold Day: 2
 Simulation Completed
 ```
 
-## 7. Important Formulas
-
-- New water level = Previous water level + Inflow − Outflow
-- Overflow = New water level − Tank capacity
-- Shortage = Absolute value of negative water level
-- If water exceeds capacity, the tank level is limited to its capacity.
-- If water becomes negative, the tank level is set to zero.
-
