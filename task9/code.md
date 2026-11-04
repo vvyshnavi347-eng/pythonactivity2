@@ -74,11 +74,6 @@ Evaluate a shopping basket containing multiple products and their quantities. Ca
 
 ```
 
-## 4. Python Source Code
-
-```
-# Multi-Product Shopping Budget Constraintbudget = float(input("Enter your shopping budget: Rs. "))n = int(input("Enter number of products: "))names = []prices = []quantities = []for i in range(n):    print("\nProduct", i + 1)    name = input("Enter product name: ")    price = float(input("Enter product price: Rs. "))    quantity = int(input("Enter quantity: "))    names.append(name)    prices.append(price)    quantities.append(quantity)def calculate_total():    subtotal = 0    for i in range(n):        subtotal += prices[i] * quantities[i]    if subtotal >= 1000:        discount = subtotal * 0.10    else:        discount = 0    total = subtotal - discount    return subtotal, discount, total
-```
 
 ## 5. Sample Input
 
@@ -124,4 +119,3 @@ Status: Within Budget
 Program Completed
 ```
 
-Note: The program applies a 10% discount when the subtotal is ₹1000 or more. If the budget is exceeded, it reduces one unit at a time from the costliest available product.
