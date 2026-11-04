@@ -85,11 +85,7 @@ Calculate the fuel requirements and journey costs for several vehicles using jou
 
 ```
 
-## 4. Python Source Code
 
-```
-# Fuel Consumption and Route Comparisondistance = float(input("Enter journey distance (km): "))reserve = float(input("Enter reserve fuel percentage: "))n = int(input("Enter number of vehicles: "))best_cost = float('inf')best_vehicle = ""for i in range(n):    print("\nEnter details of Vehicle", i + 1)    name = input("Enter vehicle name: ")    mileage = float(input("Enter mileage (km/litre): "))    price = float(input("Enter fuel price per litre: "))    capacity = float(input("Enter fuel tank capacity (litres): "))    if mileage <= 0 or price < 0 or capacity < 0:        print("Invalid vehicle details")        continue    fuel = distance / mileage    reserve_fuel = fuel * reserve / 100    total_fuel = fuel + reserve_fuel    print("Fuel required:", round(total_fuel, 2), "litres")    if total_fuel <= capacity:        cost = total_fuel * price        print("Status: Feasible")        print("Journey cost: Rs.", round(cost, 2))
-```
 
 ## 5. Sample Input
 
@@ -129,13 +125,3 @@ Status: Feasible
 Journey cost: Rs. 866.25
 
 Fuel required: 33.0 litres
-Status: Not Feasible
-Required fuel exceeds tank capacity
-
------ FINAL RESULT -----
-Lowest cost vehicle: Bike
-Minimum journey cost: Rs. 866.25
-Program Completed
-```
-
-Note: Reserve fuel is calculated as a percentage of the basic fuel requirement. Only vehicles with sufficient tank capacity are considered for the lowest-cost comparison.
